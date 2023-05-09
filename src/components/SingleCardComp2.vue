@@ -2,8 +2,8 @@
     import { store } from '../store'
 
     export default {
-        name:'SingleCard',
-        props:['dettagliFilm'],
+        name:'SingleCardComp2',
+        props:['dettagliSerie'],
         data(){
             return{
                 store
@@ -14,12 +14,12 @@
 
 <template>
     <div class="mt-4 mx-2">
-        <img :src="store.pathImages + dettagliFilm.poster_path" alt="">
+        <img :src="store.pathImages + dettagliSerie.poster_path" alt="">
         <div class="p-3">
-            <p>{{ dettagliFilm.original_title }}</p>
-            <p>{{ dettagliFilm.original_title }}</p>
-            <p>{{ dettagliFilm.original_language }}</p>
-            <p>{{ dettagliFilm.vote_average }}</p>
+            <p>{{ dettagliSerie.original_name }}</p>
+            <p>{{ dettagliSerie.original_name }}</p>
+            <p>{{ dettagliSerie.original_language }}</p>
+            <p>{{ dettagliSerie.vote_average }}</p>
         </div>
         
     </div>        

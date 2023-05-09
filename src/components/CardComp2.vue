@@ -1,11 +1,11 @@
 <script>
     import { store } from '../store';
-    import SingleCardComp from './SingleCardComp.vue';
+    import SingleCardComp2 from './SingleCardComp2.vue';
 
     export default {
-        name:'CardComp',
+        name:'CardComp2',
         components:{
-            SingleCardComp,
+            SingleCardComp2,
         },
         data(){
             return{
@@ -17,10 +17,10 @@
 
 <template>
     <div class="d-flex overflow-x-auto">
-        <SingleCardComp 
-        v-for="(elem, index) in store.ArrayFilm"
+        <SingleCardComp2 
+        v-for="(elem, index) in store.ArrayTvSeries"
         :key="index"
-        :dettagliFilm="elem"/>       
+        :dettagliSerie="elem"/>       
     </div>
 </template>
 
