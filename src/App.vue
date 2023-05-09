@@ -1,9 +1,21 @@
-<script >
+<script>
+
+import NavComp from './components/NavComp.vue';
+import CardComp from './components/CardComp.vue'
+
+export default{
+  name:'app',
+  components:{
+    NavComp,
+    CardComp,
+  }
+}
 
 </script>
 
 <template>
-  <h1>Ciao mondo</h1>
+  <NavComp/>
+  <CardComp/>
 </template>
 
 <style lang="scss">
