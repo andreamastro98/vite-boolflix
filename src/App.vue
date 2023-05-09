@@ -17,10 +17,10 @@ export default{
     }
   },
   created(){
-    this.chiamataApi()
+    this.chiamataApi
 
   },
-  methods:{
+  computed:{
     chiamataApi(){
       axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${store.ApiKey}&query=${store.testoRicerca}`).then((res)=>{
         
@@ -30,6 +30,9 @@ export default{
         }
       )
     }
+  },
+  methods:{
+    
   }
 }
 
@@ -37,7 +40,10 @@ export default{
 
 <template>
   <NavComp @search="chiamataApi"/>
-  <CardComp/>
+  <main class="container">
+    <CardComp/>
+  </main>
+  
 </template>
 
 <style lang="scss">

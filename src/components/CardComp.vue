@@ -16,7 +16,7 @@
 </script>
 
 <template>
-    <div class="container">
+    <div class="container row">
         <SingleCardComp 
         v-for="(elem, index) in store.ArrayFilm"
         :key="index"

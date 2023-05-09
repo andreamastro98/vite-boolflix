@@ -14,7 +14,7 @@
 <template>
     <div>
         <nav class="navbar bg-dark" data-bs-theme="dark">
-            <div class="container-fluid">
+            <div class="container">
                 <a class="navbar-brand">Boolfix</a>
                 <form class="d-flex" role="search">
                     <input v-model="store.testoRicerca"

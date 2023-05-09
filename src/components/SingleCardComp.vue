@@ -6,14 +6,13 @@
 </script>
 
 <template>
-    <div class="row">
-        <div class="col-3">
-            <h5>Titolo:{{ dettagliFilm.original_title }}</h5>
-            <h5>Titolo originale:{{ dettagliFilm.original_title }}</h5>
-            <h5>Lingua:{{ dettagliFilm.original_language }}</h5>
-            <h5>Voto:{{ dettagliFilm.vote_average }}</h5>
-        </div>        
-    </div>
+    <div class="col-3 my-4">
+        <img :src="store.pathImages + dettagliFilm.backdrop_path" alt="">
+        <div>Titolo: {{ dettagliFilm.original_title }}</div>
+        <div>Titolo originale: {{ dettagliFilm.original_title }}</div>
+        <div>Lingua: {{ dettagliFilm.original_language }}</div>
+        <div>Voto: {{ dettagliFilm.vote_average }}</div>
+    </div>        
 </template>
 
 <style lang="scss" scoped>
