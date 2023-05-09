@@ -1,12 +1,26 @@
 <script>
+    import { store } from '../store';
+    import SingleCardComp from './SingleCardComp.vue';
+
     export default {
-        name:'CardComp'
+        name:'CardComp',
+        components:{
+            SingleCardComp,
+        },
+        data(){
+            return{
+                store
+            }
+        }
     }
 </script>
 
 <template>
-    <div>
-        
+    <div class="container">
+        <SingleCardComp 
+        v-for="(elem, index) in store.ArrayFilm"
+        :key="index"
+        :dettagliFilm="elem"/>       
     </div>
 </template>
 

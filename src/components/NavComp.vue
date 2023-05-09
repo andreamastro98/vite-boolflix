@@ -1,6 +1,13 @@
 <script>
+    import { store } from '../store';
+
     export default {
-        name:'NavComp'
+        name:'NavComp',
+        data(){
+            return{
+                store
+            }
+        }
     }
 </script>
 
@@ -10,8 +17,10 @@
             <div class="container-fluid">
                 <a class="navbar-brand">Boolfix</a>
                 <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-danger" type="submit">Search</button>
+                    <input v-model="store.testoRicerca"
+                    class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button @click="$emit('search')"
+                    class="btn btn-outline-danger" type="submit">Search</button>
                 </form>
             </div>
         </nav>
