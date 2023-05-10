@@ -16,7 +16,7 @@
 </script>
 
 <template>
-    <div class="d-flex overflow-x-auto">
+    <div class="d-flex overflow-x-auto example">
         <SingleCardComp 
         v-for="(elem, index) in store.ArrayFilm"
         :key="index"

@@ -16,7 +16,7 @@
 </script>
 
 <template>
-    <div class="d-flex overflow-x-auto">
+    <div class="d-flex overflow-x-auto example">
         <SingleCardComp2 
         v-for="(elem, index) in store.ArrayTvSeries"
         :key="index"

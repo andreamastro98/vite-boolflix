@@ -19,7 +19,7 @@
                 <form class="d-flex" role="search">
                     <input v-model="store.testoRicerca"
                     class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button @click="$emit('search')"
+                    <button @click.prevent="$emit('search')"
                     class="btn btn-outline-danger" type="submit">Search</button>
                 </form>
             </div>

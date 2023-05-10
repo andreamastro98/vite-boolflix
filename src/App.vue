@@ -20,47 +20,49 @@ export default{
   },
   created(){
 
-    this.chiamataApi
-    this.chiamataApi2
+    //this.chiamataApi()
+    //this.chiamataApi2()
     
   },
   computed:{
+    
+
+  },
+  methods:{
     chiamataApi(){
       axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${store.ApiKey}&query=${store.testoRicerca}`).then((res)=>{
+
+          store.Film = true
         
-          console.log(res.data.results)
+          //console.log(res.data.results)
 
           store.ArrayFilm = res.data.results
         }
       )
-    },
-    chiamataApi2(){
       axios.get(`https://api.themoviedb.org/3/search/tv?api_key=${store.ApiKey}&query=${store.testoRicerca}`).then((res)=>{
+
+        store.tvseries = true
         
-        console.log(res.data.results)
+        //console.log(res.data.results)
 
         store.ArrayTvSeries = res.data.results
 
-        console.log(store.ArrayTvSeries)
+        //console.log(store.ArrayTvSeries)
 
         }
       )
     }
-
-  },
-  methods:{
-    
   }
 }
 
 </script>
 
 <template>
-  <NavComp @search="chiamataApi"/>
+  <NavComp @search="chiamataApi()"/>
   <main class="px-4 pt-4">
-    <h2>FILM</h2>
+    <h2 v-if="store.Film">FILM</h2>
     <CardComp/>
-    <h2>SERIE TV</h2>
+    <h2 v-if="store.tvseries">SERIE TV</h2>
     <CardComp2/>
   </main>
   
