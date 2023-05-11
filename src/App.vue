@@ -30,7 +30,7 @@ export default{
   },
   methods:{
     chiamataApi(){
-      axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${store.ApiKey}&query=${store.testoRicerca}`).then((res)=>{
+      axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${import.meta.env.VITE_API_KEY}&query=${store.testoRicerca}`).then((res)=>{
 
           store.Film = true
         
@@ -39,7 +39,7 @@ export default{
           store.ArrayFilm = res.data.results
         }
       )
-      axios.get(`https://api.themoviedb.org/3/search/tv?api_key=${store.ApiKey}&query=${store.testoRicerca}`).then((res)=>{
+      axios.get(`https://api.themoviedb.org/3/search/tv?api_key=${import.meta.env.VITE_API_KEY}&query=${store.testoRicerca}`).then((res)=>{
 
         store.tvseries = true
         

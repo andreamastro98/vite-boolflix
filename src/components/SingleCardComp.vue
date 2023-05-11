@@ -22,6 +22,13 @@
                } else {
                 return this.dettagliFilm.original_language + '.png'
                }
+            },
+            getImages(){
+                if (this.dettagliFilm.poster_path){
+                    return this.store.pathImages + this.dettagliFilm.poster_path
+                } else if (this.dettagliFilm.poster_path === null){
+                    return '/images/alternativa.jpg'
+                }
             }
         }
     }
@@ -29,13 +36,20 @@
 
 <template>
     <div class="mt-4 mx-1">
-        <img :src="store.pathImages + dettagliFilm.poster_path" alt="">
+        <img :src="getImages()" alt="">
         <div class="p-3">
-            <p>{{ dettagliFilm.original_title }}</p>
+            <p><b>Titolo: </b>{{ dettagliFilm.original_title }}</p>            
+            
+            <div class="my-3">
+                <span class="white">Voto: </span>
+                <span><i :class="(Math.ceil(dettagliFilm.vote_average) >= 2) ? 'yellow' : ''" class="fa-solid fa-star"></i></span>
+                <span><i :class="(Math.ceil(dettagliFilm.vote_average) >= 4) ? 'yellow' : ''" class="fa-solid fa-star"></i></span>
+                <span><i :class="(Math.ceil(dettagliFilm.vote_average) >= 6) ? 'yellow' : ''" class="fa-solid fa-star"></i></span>
+                <span><i :class="(Math.ceil(dettagliFilm.vote_average) >= 8) ? 'yellow' : ''" class="fa-solid fa-star"></i></span>
+                <span><i :class="(Math.ceil(dettagliFilm.vote_average) >= 10) ? 'yellow' : ''" class="fa-solid fa-star"></i></span>
+            </div>
 
-            <img :src="store.pathLang + bandierine()">           
-
-            <p>{{ Math.ceil(Math.round((dettagliFilm.vote_average/10)*5))}}</p>
+            <img :src="store.pathLang + bandierine()">
         </div>
         
     </div>        
@@ -46,6 +60,16 @@
 p{
     color: white;
     font-size: 12px;
+}
+
+.yellow{
+    color: yellow;
+}
+
+.white{
+    color: white;
+    font-size: 12px;
+    font-weight: bolder;
 }
 
 </style>
