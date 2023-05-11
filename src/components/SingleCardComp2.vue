@@ -29,24 +29,26 @@
                 } else if (this.dettagliSerie.poster_path === null){
                     return '/images/alternativa.jpg'
                 }
+            },
+            getVote(){
+                return Math.ceil(this.dettagliSerie.vote_average / 2) //voto compreso tra 1 e 5
             }
         }
     }
 </script>
 
 <template>
-    <div class="mt-4 mx-1">
+    <div class="mt-4 mx-1 position-relative single-card">
         <img :src="getImages()" alt="">
-        <div class="p-3">
-            <p><b>Titolo:</b> {{ dettagliSerie.original_name }}</p>            
+        <div class="p-3 position-absolute description">
+            <p><b>Titolo:</b> {{ dettagliSerie.original_name }}</p>
+            
+            <p><b>Descrizione: </b>{{ dettagliSerie.overview }}</p>
 
             <div class="my-3">
                 <span class="white">Voto: </span>
-                <span><i :class="(Math.ceil(dettagliSerie.vote_average) >= 2) ? 'yellow' : ''" class="fa-solid fa-star"></i></span>
-                <span><i :class="(Math.ceil(dettagliSerie.vote_average) >= 4) ? 'yellow' : ''" class="fa-solid fa-star"></i></span>
-                <span><i :class="(Math.ceil(dettagliSerie.vote_average) >= 6) ? 'yellow' : ''" class="fa-solid fa-star"></i></span>
-                <span><i :class="(Math.ceil(dettagliSerie.vote_average) >= 8) ? 'yellow' : ''" class="fa-solid fa-star"></i></span>
-                <span><i :class="(Math.ceil(dettagliSerie.vote_average) >= 10) ? 'yellow' : ''" class="fa-solid fa-star"></i></span>
+                <i v-for="n in 5" class="fa-star" 
+                :class="(n <= getVote()) ? 'fa-solid fa-star yellow' : 'fa-solid fa-star'"></i>
             </div>
 
             <img :src="store.pathLang + bandierine()">
@@ -71,5 +73,22 @@ p{
     font-size: 12px;
     font-weight: bolder;
 }
+
+.description{
+    display: none;
+    bottom: 50px;
+}
+
+.single-card{
+    &:hover{
+        img:first-child{
+            filter: brightness(10%);
+        }
+        .description{
+            display: block;
+            filter: brightness(100%);
+            }
+        }
+    } 
 
 </style>
