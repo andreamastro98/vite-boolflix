@@ -60,9 +60,9 @@ export default{
 <template>
   <NavComp @search="chiamataApi()"/>
   <main class="px-4 py-4">
-    <h2 v-if="store.Film">FILM</h2>
+    <h2 v-if="store.Film">Film</h2>
     <CardComp/>
-    <h2 class="mt-4" v-if="store.tvseries">SERIE TV</h2>
+    <h2 class="mt-4" v-if="store.tvseries">Serie TV</h2>
     <CardComp2/>
   </main>
   
@@ -71,7 +71,7 @@ export default{
 <style lang="scss">
 @use './style/main.scss';
 main{
-  background-color: black;
+  background-color: #101010;
   min-height: calc(100vh - 56px) ;
 
   h2{

@@ -39,7 +39,7 @@
 
 <template>
     <div class="mt-4 mx-1 position-relative single-card">
-        <img :src="getImages()" alt="">
+        <img :src="getImages()" alt="" class="rounded-2">
         <div class="p-3 position-absolute description">
             <p><b>Titolo: </b>{{ dettagliFilm.original_title }}</p>
             
@@ -89,5 +89,6 @@ p{
             filter: brightness(100%);
             }
         }
-    } 
+    }
+
 </style>

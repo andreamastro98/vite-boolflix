@@ -11,12 +11,24 @@
             return{
                 store
             }
+        },
+        methods:{
+            scrollHorrizontale (e, elementoHTML){
+
+                const container = document.getElementById(elementoHTML)
+
+                if (e.deltaY > 0){
+                    container.scrollLeft += 300
+                } else {
+                    container.scrollLeft -= 300
+                }
+            }            
         }
     }
 </script>
 
 <template>
-    <div class="d-flex overflow-x-auto example">
+    <div id="container-film" class="d-flex overflow-x-auto example" @wheel.prevent="scrollHorrizontale($event, 'container-film')">
         <SingleCardComp 
         v-for="(elem, index) in store.ArrayFilm"
         :key="index"
